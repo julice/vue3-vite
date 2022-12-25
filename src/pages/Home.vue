@@ -1,21 +1,22 @@
 <script setup>
-import { ref } from 'vue';
-import TodoListVue from './TodoList.vue';
-import Rate from '../components/Rate.vue';
-const color = ref('red');
-const score = ref(3);
-function onupdaterate(num) {
-  console.log(num);
+import { useStore } from 'vuex';
+import { provide, computed } from 'vue';
+import injectcom from '../components/injectcom.vue';
+const store = useStore();
+provide('name', {
+  data: 3,
+  data2: 33,
+});
+console.log(store.state.count, 33);
+const count = computed(() => store.state.count);
+function asyncAdd() {
+  store.dispatch('asyncAdd');
 }
 </script>
 <template>
-  <TodoListVue />
-  <p>{{ score }}</p>
-  <Rate v-model="score" theme="yellow" @update-rate="onupdaterate" />
+  <div @click="asyncAdd">home</div>
+  <div>{{ count }}</div>
+  <injectcom />
 </template>
 
-<style lang="scss" scoped>
-.text {
-  color: v-bind(color);
-}
-</style>
+<style lang="scss" scoped></style>
