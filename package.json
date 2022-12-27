@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "element3": "^0.0.40",
     "pinia": "^2.0.28",
     "sass": "^1.57.1",
     "vue": "^3.2.45",
