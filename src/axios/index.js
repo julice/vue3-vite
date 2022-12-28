@@ -11,11 +11,11 @@ service.interceptors.request.use(
   (res) => {
     const config = res;
     const { headers } = config;
-    const { url } = config;
-    const params = config.params || {};
-    const data = config.data || {};
+    // const { url } = config;
+    // const params = config.params || {};
+    // const data = config.data || {};
     res.url = res.url || '';
-    headers.scid = 'sc9526AF69EEC9FE3B';
+    headers.scid = '';
     return config;
   },
   (error) => {
